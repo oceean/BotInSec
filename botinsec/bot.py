@@ -8,6 +8,10 @@ import random
 class Message:
     pass
 
+# TODO
+# message
+# chat
+
 class Bot:
     def __init__(self, token:str):
         self.token = token
@@ -56,7 +60,7 @@ class Bot:
             return f
         return decorator
 
-    def wait_command(self, rule:str="start"):
+    def command(self, rule:str="start"):
         def decorator(f):
             self.meta_wait(f, rule)
             return f
