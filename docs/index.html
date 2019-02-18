@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/languages/python.min.js">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/solid.css" integrity="sha384-r/k8YTFqmlOaqRkZuSiE9trsrDXkh07mRaoGBMoDcmA58OHILZPsk29i2BsFng1B" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/fontawesome.css" integrity="sha384-4aon80D8rXCGx9ayDt85LbyUHeMWd3UiBaWliBlJ53yzm9hqN21A+o1pqoyK04h+" crossorigin="anonymous">
 </head>
 <body>
 
@@ -20,16 +22,15 @@
             <br>
             <h1>Bot in sec</h1>
             <br>
+            <img src="/icon.144.png" class="float-right" alt="icon">
+            <br>
             <p>
-                <a href="https://github.com/oceean/BotInSec">view code</a>
-                <br>
-                <a href="https://github.com/oceean/BotInSec/releases">download</a>
-                <br>
-                <a href="https://github.com/oceean/BotInSec/issues">issue</a>
+                Now a telegram bot can be created in just a couple of seconds. You can easily set the timer. You can program the logic of response to <a href="https://tlgrm.ru/docs/bots#commands">commands</a> in a couple of lines of code. And most importantly, the possibility of working on a schedule. You can <a href="https://github.com/oceean/BotInSec">use it for free</a>, but the recommended price is &dollar;15. <a href="https://rocketbank.ru/oceean-dev">When you buy</a>, you can influence the development of the project and get access to pre-release versions.
             </p>
             <br>
-            <button type="button" class="btn btn-link" @click="dark=!dark">Theme</button>
-            <br>
+            <p>
+                You can also help the development by pointing out the <a href="https://github.com/oceean/BotInSec/issues">error</a>
+            </p>
             <br>
             <b-card no-body :class="`bg-${dark?'dark':'light'}`">
                 <div>
@@ -38,6 +39,7 @@
                     <b-tabs pills end card content-class="mt-3">
                         <b-tab :title="temp.title" :key="temp.id" v-for="temp in templates">
                             <pre><code class="python rounded">{{temp.code}}</code></pre>
+                            <button type="button" class="btn btn-link" @click="dark=!dark"><i class="fas fa-paint-roller"></i></button>
                         </b-tab>
                     </b-tabs>
                 </div>

@@ -3,7 +3,7 @@ let app = new Vue({
     el: '#app',
     data: {
         selected: "",
-        dark: true,
+        dark: false,
         templates: [
             {
                 id: 0,
