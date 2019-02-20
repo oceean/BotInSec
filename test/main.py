@@ -6,7 +6,7 @@ with open("botkey.txt") as file:
     BOTKEY = BOTKEY.strip()
 b = Bot(BOTKEY)
 
-b.command("start")
+@b.command("start")
 def mainaction(reply):
     try:
         print("Hi")
@@ -14,6 +14,6 @@ def mainaction(reply):
     except Exception as e:
         print(e)
 
-print("live")
+print("Started!")
 b.run()
-print("die")
+print("Exit!")
