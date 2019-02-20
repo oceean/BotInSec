@@ -18,7 +18,9 @@ my_bot = Bot(TOKEN)
 
 @my_bot.command("myId")
 def chat_id(reply, **event):
-    reply('Your chat id {}'.format(event.chat.id))`
+    reply('Your chat id {}'.format(event.chat.id))
+    
+my_bot.run()`
             },
             {
                 id: 1,
@@ -33,7 +35,9 @@ my_bot = Bot(TOKEN)
 
 @my_bot.job_hour(1)
 def hourly(send):
-    send('Another hour skipped', CHAT_IDS)`
+    send('Another hour skipped', CHAT_IDS)
+    
+my_bot.run()`
             },
             {
                 id: 2,
@@ -54,7 +58,9 @@ def add_user(reply, **event):
 @my_bot.command("stop")
 def remove_user(reply, **event):
     CHAT_IDS.remove(event.chat.id)
-    reply('Bye')`
+    reply('Bye')
+    
+my_bot.run()`
             },
             {
                 id: 3,
@@ -73,7 +79,9 @@ def work_time(send, **event):
 
 @my_bot.job_day(in_time="18:00")
 def home_time(send, **event):
-    send('Time to go home', CHAT_IDS)`
+    send('Time to go home', CHAT_IDS)
+    
+my_bot.run()`
             },
             {
                 id: 4,
@@ -89,7 +97,9 @@ my_bot = Bot(TOKEN)
 @my_bot.command("get")
 def add_user(reply, **event):
     r = requests.get('https://httpbin.org/get')
-    reply(r.text)`
+    reply(r.text)
+    
+my_bot.run()`
             },
             {
                 id: 5,
@@ -105,7 +115,9 @@ my_bot = Bot(TOKEN)
 def answer(username, text, reply, **event):
     with open('inbox.txt', 'a') as file:
         file.write('\n{}: {}'.format(username, text))
-    reply('Hi, {}. Managers contact you soon'.format(username))`
+    reply('Hi, {}. Managers contact you soon'.format(username))
+    
+my_bot.run()`
             }
         ]
     }

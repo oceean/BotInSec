@@ -8,4 +8,12 @@ b = Bot(BOTKEY)
 
 b.command("start")
 def mainaction(reply):
-    reply("Hi")
+    try:
+        print("Hi")
+        reply("Hi")
+    except Exception as e:
+        print(e)
+
+print("live")
+b.run()
+print("die")

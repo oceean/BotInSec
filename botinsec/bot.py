@@ -33,14 +33,14 @@ class Bot:
     
     def job(self, seconds:int):
         def decorator(f):
-            self.updater.job_queue.run_repeating(f, seconds)
-            return lambda bot, job: f(self.send)
+            self.updater.job_queue.run_repeating(lambda bot, job: f(self.send), seconds)
+            return f
         return decorator
 
     def hourly(self, hours:int):
         def decorator(f):
-            self.updater.job_queue.run_repeating(f, hours * 3600)
-            return lambda bot, job: f(self.send)
+            self.updater.job_queue.run_repeating(lambda bot, job: f(self.send), hours * 3600)
+            return f
         return decorator
 
     def daily(self, days:int=1, in_time:str="12:00"):
@@ -56,14 +56,14 @@ class Bot:
             if seconds_delay < 0:
                 seconds_delay = 86400 + seconds_delay
 
-            self.updater.job_queue.run_repeating(f, days * 86400, first=seconds_delay)
-            return lambda bot, job: f(self.send)
+            self.updater.job_queue.run_repeating(lambda bot, job: f(self.send), days * 86400, first=seconds_delay)
+            return f
         return decorator
 
     def command(self, rule:str="start"):
         def decorator(f):
-            self.meta_wait(f, rule)
-            return lambda bot, update: f(update.message.reply_text)
+            self.meta_wait(lambda bot, update: f(update.message.reply_text), rule)
+            return f
         return decorator
 
     def meta_wait(self, func, *args):
